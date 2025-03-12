@@ -1,4 +1,4 @@
-﻿namespace Poker
+﻿namespace PokerGame
 {
     partial class frmPoker
     {
@@ -40,7 +40,7 @@
             // 
             // grpPoker
             // 
-            this.grpPoker.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.grpPoker.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.grpPoker.Location = new System.Drawing.Point(12, 12);
             this.grpPoker.Name = "grpPoker";
             this.grpPoker.Size = new System.Drawing.Size(505, 160);
@@ -54,7 +54,7 @@
             this.gtpButton.Controls.Add(this.btnCheck);
             this.gtpButton.Controls.Add(this.btnChangeCard);
             this.gtpButton.Controls.Add(this.btnDealCard);
-            this.gtpButton.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.gtpButton.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.gtpButton.Location = new System.Drawing.Point(12, 183);
             this.gtpButton.Name = "gtpButton";
             this.gtpButton.Size = new System.Drawing.Size(506, 79);
@@ -111,6 +111,7 @@
             this.ClientSize = new System.Drawing.Size(530, 273);
             this.Controls.Add(this.gtpButton);
             this.Controls.Add(this.grpPoker);
+            this.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPoker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

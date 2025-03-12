@@ -5,7 +5,7 @@ using System.Resources;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Poker
+namespace PokerGame
 {
     public partial class frmPoker : Form
     {
@@ -64,7 +64,7 @@ namespace Poker
         /// <returns></returns>
         private Image GetImage(string name)
         {
-            ResourceManager rm = Poker.Properties.Resources.ResourceManager;
+            ResourceManager rm = PokerGame.Properties.Resources.ResourceManager;
             Image img = rm.GetObject(name) as Image;
             if (img == null)
             {
