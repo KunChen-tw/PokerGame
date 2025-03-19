@@ -1,6 +1,6 @@
 ﻿namespace PokerGame
 {
-    partial class frmPoker
+    partial class frmPokerGame
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPoker));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPokerGame));
             this.grpPoker = new System.Windows.Forms.GroupBox();
             this.gtpButton = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
@@ -113,9 +113,11 @@
             this.Controls.Add(this.grpPoker);
             this.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmPoker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "五張撲克牌";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmPokerGame_KeyPress);
             this.gtpButton.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PokerGame
 {
-    public partial class frmPoker : Form
+    public partial class frmPokerGame : Form
     {
         Random rand = new Random();
         private PictureBox[] pic = new PictureBox[5];
@@ -23,7 +23,7 @@ namespace PokerGame
         private int[] playerPoker = new int[5];
 
 
-        public frmPoker()
+        public frmPokerGame()
         {
             InitializeComponent();
 
@@ -94,6 +94,17 @@ namespace PokerGame
             }
 
         }
+
+        /// <summary>
+        /// 顯示五張撲克牌到桌面上
+        /// </summary>
+        private void ShowCards()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                pic[i].Image = this.GetImage($"pic{playerPoker[i] + 1}");
+            }
+        }
         #endregion
 
 
@@ -133,12 +144,11 @@ namespace PokerGame
             {
                 // 取得撲克牌圖片編號
                 int idx = allPoker[i];
-                // 將撲克牌圖片顯示在 PictureBox 控制項上
-                pic[i].Image = this.GetImage($"pic{idx + 1}");
                 // 記錄玩家的五張牌
                 playerPoker[i] = idx;
             }
-
+            // 將五張撲克牌顯示在桌面上
+            ShowCards();
             for (int i = 0; i < pic.Length; i++)
             {
                 pic[i].Enabled = true;
@@ -269,7 +279,7 @@ namespace PokerGame
                 pointCount[pokerPoint[i]]++;
             }
 
-            
+
             Array.Sort(colorCount, colorList); // 依照花色數量排序 (由小到大)
             Array.Reverse(colorCount);         // 花色數量由大到小
             Array.Reverse(colorList);          // 花色名稱由大到小
@@ -339,7 +349,7 @@ namespace PokerGame
             }
             else if (isTwoPair)
             {
-                result = $"{pointList[0]}{pointList[1]} 兩對";
+                result = $"{pointList[0]},{pointList[1]} 兩對";
             }
             else if (isOnePair)
             {
@@ -354,6 +364,66 @@ namespace PokerGame
             btnDealCard.Enabled = true;
             btnCheck.Enabled = false;
 
+        }
+
+        private void frmPokerGame_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (btnDealCard.Enabled == false)
+            {
+                switch (e.KeyChar)
+                {
+                    case 'q': // q鍵 
+                        // 同花大順
+                        playerPoker[0] = 51;
+                        playerPoker[1] = 47;
+                        playerPoker[2] = 43;
+                        playerPoker[3] = 39;
+                        playerPoker[4] = 3;
+                        break;
+                    case 'w': // w鍵
+                        // 同花順
+                        playerPoker[0] = 37;
+                        playerPoker[1] = 33;
+                        playerPoker[2] = 29;
+                        playerPoker[3] = 25;
+                        playerPoker[4] = 21;
+                        break;
+                    case 'e': // e鍵
+                        // 同花
+                        playerPoker[0] = 50;
+                        playerPoker[1] = 38;
+                        playerPoker[2] = 34;
+                        playerPoker[3] = 22;
+                        playerPoker[4] = 18;
+                        break;
+                    case 'r': // r鍵
+                        // 鐵支
+                        playerPoker[0] = 48;
+                        playerPoker[1] = 39;
+                        playerPoker[2] = 38;
+                        playerPoker[3] = 37;
+                        playerPoker[4] = 36;
+                        break;
+                    case 't':  // t鍵
+                        // 葫蘆
+                        playerPoker[0] = 30;
+                        playerPoker[1] = 29;
+                        playerPoker[2] = 6;
+                        playerPoker[3] = 5;
+                        playerPoker[4] = 4;
+                        break;
+                    case 'y':  // y鍵
+                        // 三條
+                        playerPoker[0] = 48;
+                        playerPoker[1] = 39;
+                        playerPoker[2] = 15;
+                        playerPoker[3] = 14;
+                        playerPoker[4] = 13;
+                        break;
+                }
+                // 顯示五張撲克牌到桌面上
+                ShowCards();
+            }
         }
     }
 }
